@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+void spiral(int row , int col , int a[][1000]){
+
+    int startRow=0 ;
+    int endRow=row-1;
+    int startCol=0;
+    int endCol=col-1;
+
+    while(startRow<=endRow && startCol<=endCol){
+        //first row
+        for(int i=startCol ; i<=endCol; i++){
+            cout<<a[startRow][i]<<" ";
+        }
+        startRow++;
+
+        //last column
+        if(endCol>startCol){
+        for(int i = startRow; i<=endRow ; i++){
+            cout<<a[i][endCol]<<" ";
+        }
+        endCol--;
+        }
+        //last row
+        if(endRow>startRow){
+        for(int i=endCol ; i>=startCol; i--){
+            cout<<a[endRow][i]<<" ";
+        }
+        endRow--;
+        }
+        //first column
+        for(int i=endRow; i>=startRow; i--){
+            cout<<a[i][startCol]<<" ";
+        }
+        startCol++;
+    }
+
+
+}
+int main(){
+
+    int r,c;
+    cout<<"Rows:";
+    cin>>r;
+    cout<<"columns:";
+    cin>>c;
+    int arr[r][1000];
+    for(int i=0 ; i< r; i++){
+        for(int j=0 ; j<c;j++)
+        cin>>arr[i][j];
+    }
+    spiral(r,c,arr);
+
+    return 0;
+}
