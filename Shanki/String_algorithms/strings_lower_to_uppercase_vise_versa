@@ -1,0 +1,34 @@
+#include<iostream>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+int main(){
+
+    //changing a lowercase string into uppercase string normally
+    string st="abcmhfhdk";
+    for(int i=0; i<st.size(); i++)
+    {
+        if(st[i]>= 'a' && st[i]<= 'z')
+        st[i]-=32;
+    }
+    cout<<st<<endl;
+
+    //changing a uppercase string into lowercase string normally
+    for(int i=0 ; i<st.size(); i++){
+        if(st[i]>='A' && st[i]<= 'Z')
+        st[i]+=32;
+    }
+    cout<<st<<endl;
+
+    //changing a lowercase string into uppercase string using transform
+    st="askjfuihfH";
+    transform(st.begin(), st.end(), st.begin(), ::toupper);
+    cout<<st<<endl;
+
+    //chaging the lowercase string into lowecase string using transform
+    transform(st.begin(), st.end(), st.begin(), ::tolower);
+    cout<<st<<endl;
+
+
+    return 0;
+}
