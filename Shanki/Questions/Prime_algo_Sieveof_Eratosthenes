@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+void SieveofEratosthenes(int n){
+    int ar[100]={0};                                    //Creating a array and intialisng it with 0
+    for(int i=2 ; i<=n ; i++){                          
+        if(!ar[i]){                                     // If ar[i]==0 then:-
+            for(int j=i*i ; j<=n; j+=i){                //Here we are basically making the multiple's postion of that i with 1 starting with the postion i*i
+                ar[j]=1;                                // Hence at last only the prime numbers will be left with 0 at their position
+            }
+        }
+    }
+
+    for(int i=2 ; i <=n ; i++){
+        if(!ar[i]){
+            cout<<i<<"  ";
+        }
+    }
+}
+int main(){
+    int n;
+    cout<<"Enter the range for prime numbers:";
+    cin>>n;
+    SieveofEratosthenes(n);
+
+    return 0;
+}
