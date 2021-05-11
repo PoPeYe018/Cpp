@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+// We want to tell either it is a 1 or 0 at a position in the bit of that number
+int getbit(int n , int pos){
+    return ((n & (1<<pos))!=0);         //Using left shift operator and bitwise AND
+}
+
+// Making a bit 1 at a postion
+int setbit(int n, int pos){
+    return  (n | (1<<pos));
+}
+
+// to clear that bit (making it 0) at that position
+int clearbit(int n, int pos){       
+    int mask = 1<<pos;                  // First making 1 at that postion using left operator
+    return (n & ~mask);                 // using NOT to make it 0 at that position and the AND with the give number
+}
+
+// to update the position with the desired value(0 or 1)
+int updatebit(int n , int pos, int value){
+    int mask = 1>>pos;
+    n= n & ~mask;                       //Using th value in the left shift operator so that the
+    return (n | (value<<pos));              //value comes at that placee and then OR with the number given
+}
+
+int main(){
+
+    cout<<getbit(11,2)<<endl;
+    cout<<setbit(5,1)<<endl;
+    cout<<clearbit(5,2)<<endl;
+    cout<<updatebit(5,1,1)<<endl;
+
+    return 0;
+}

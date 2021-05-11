@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+ 
+
+bool ispowerof2(int n){
+	return ( n && (n & n-1)!= 1);
+}
+/*
+	to check whether it is a power of 2 or not...We will AND the non-zero number (n) with (n-1) 
+	and it should come 0.
+	for e.g  16 is 10000   and 15 is 01111
+	and clearly 		16 & 15 =0
+
+*/
+int main(){
+	cout<<ispowerof2(2048)<<endl;
+	return 0;
+}
